@@ -14,6 +14,18 @@ yarn build
 python3 -m http.server -d dist
 ```
 
+## Data Sourcing
+
+GeoJSON data was taken from [DataMeet](https://github.com/datameet/maps/blob/master/website/docs/data/geojson/ac.geojson). It was preprocessed using:
+
+```
+jq '.features | { type: "FeatureCollection", features: [ .[] | select(.properties.ST_CODE == "17") ] }' ac.geojson > megh.geojson
+```
+
+## Resources
+
+- https://bost.ocks.org/mike/map/
+
 ---
 
 This project was scaffolded with `yarn create vite govmap --template svelte-ts`
