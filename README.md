@@ -25,6 +25,7 @@ jq '.features | { type: "FeatureCollection", features: [ .[] | select(.propertie
 ## Resources
 
 - https://bost.ocks.org/mike/map/
+- https://observablehq.com/@d3/d3-scaleordinal
 
 ---
 
