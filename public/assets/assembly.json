@@ -1,0 +1,602 @@
+[
+  {
+    "Alliance": "MDA",
+    "Constituency": "Nartiang (ST)",
+    "Name": "Sniawbhalang Dhar",
+    "No.": "1",
+    "Party": "NPP",
+    "Remarks": "Deputy chief minister",
+    "District": "West Jaintia Hills district",
+    "Constituency_No": 1
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Jowai (ST)",
+    "Name": "Wailadmiki Shylla",
+    "No.": "2",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "West Jaintia Hills district",
+    "Constituency_No": 2
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Raliang (ST)",
+    "Name": "Comingone Ymbon",
+    "No.": "3",
+    "Party": "NPP",
+    "Remarks": "Cabinet Minister",
+    "District": "West Jaintia Hills district",
+    "Constituency_No": 3
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mowkaiaw (ST)",
+    "Name": "Nujorki Sungoh",
+    "No.": "4",
+    "Party": "UDP",
+    "Remarks": "",
+    "District": "West Jaintia Hills district",
+    "Constituency_No": 4
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Sutnga Saipung (ST)",
+    "Name": "Santa Mary Shylla",
+    "No.": "5",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "East Jaintia Hills district",
+    "Constituency_No": 5
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Khliehriat (ST)",
+    "Name": "Kyrmen Shylla",
+    "No.": "6",
+    "Party": "UDP",
+    "Remarks": "Cabinet Minister",
+    "District": "East Jaintia Hills district",
+    "Constituency_No": 6
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Amlarem (ST)",
+    "Name": "Lahkmen Rymbui",
+    "No.": "7",
+    "Party": "UDP",
+    "Remarks": "",
+    "District": "West Jaintia Hills district",
+    "Constituency_No": 7
+  },
+  {
+    "Alliance": "UPA",
+    "Constituency": "Mawhati (ST)",
+    "Name": "Charles Marngar",
+    "No.": "8",
+    "Party": "INC",
+    "Remarks": "",
+    "District": "Ri Bhoi district",
+    "Constituency_No": 8
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Nongpoh (ST)",
+    "Name": "Mayralborn Syiem",
+    "No.": "9",
+    "Party": "UDP",
+    "Remarks": "",
+    "District": "Ri Bhoi district",
+    "Constituency_No": 9
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Jirang (ST)",
+    "Name": "Sosthenes Sothum",
+    "No.": "10",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "Ri Bhoi district",
+    "Constituency_No": 10
+  },
+  {
+    "Alliance": "UPA",
+    "Constituency": "Umsning (ST)",
+    "Name": "Celestine Lyngdoh",
+    "No.": "11",
+    "Party": "INC",
+    "Remarks": "",
+    "District": "Ri Bhoi district",
+    "Constituency_No": 11
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Umroi (ST)",
+    "Name": "Damanbait Lamare",
+    "No.": "12",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "Ri Bhoi district",
+    "Constituency_No": 12
+  },
+  {
+    "Alliance": "Others",
+    "Constituency": "Mawrengkneng (ST)",
+    "Name": "Heavingstone Kharpran",
+    "No.": "13",
+    "Party": "VPP",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 13
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Pynthorumkhrah",
+    "Name": "Alexander Laloo Hek",
+    "No.": "14",
+    "Party": "BJP",
+    "Remarks": "Cabinet Minister",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 14
+  },
+  {
+    "Alliance": "Others",
+    "Constituency": "Mawlai (ST)",
+    "Name": "Brightstarwell Marbaniang",
+    "No.": "15",
+    "Party": "VPP",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 15
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "East Shillong (ST)",
+    "Name": "Ampareen Lyngdoh",
+    "No.": "16",
+    "Party": "NPP",
+    "Remarks": "Cabinet Minister",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 16
+  },
+  {
+    "Alliance": "Others",
+    "Constituency": "North Shillong (ST)",
+    "Name": "Adelbert Nongrum",
+    "No.": "17",
+    "Party": "VPP",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 17
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "West Shillong",
+    "Name": "Paul Lyngdoh",
+    "No.": "18",
+    "Party": "UDP",
+    "Remarks": "Cabinet Minister",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 18
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "South Shillong",
+    "Name": "Sanbor Shullai",
+    "No.": "19",
+    "Party": "BJP",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 19
+  },
+  {
+    "Alliance": "UPA",
+    "Constituency": "Mylliem (ST)",
+    "Name": "Ronnie V. Lyngdoh",
+    "No.": "20",
+    "Party": "INC",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 20
+  },
+  {
+    "Alliance": "Others",
+    "Constituency": "Nongthymmai (ST)",
+    "Name": "Charles Pyngrope",
+    "No.": "21",
+    "Party": "AITC",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 21
+  },
+  {
+    "Alliance": "Others",
+    "Constituency": "Nongkrem (ST)",
+    "Name": "Ardent Miller Basaiawmoit",
+    "No.": "22",
+    "Party": "VPP",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 22
+  },
+  {
+    "Alliance": "Vacant",
+    "Constituency": "Sohiong (ST)",
+    "Name": "Vacant",
+    "No.": "23",
+    "Party": "Vacant",
+    "Remarks": "Vacant",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 23
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mawphlang (ST)",
+    "Name": "Matthew Beyondstar Kurbah",
+    "No.": "24",
+    "Party": "UDP",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 24
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mawsynram (ST)",
+    "Name": "Ollan Singh Suin",
+    "No.": "25",
+    "Party": "UDP",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 25
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Shella (ST)",
+    "Name": "Balajied Kupar Syiem",
+    "No.": "26",
+    "Party": "UDP",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 26
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Pynursla (ST)",
+    "Name": "Prestone Tynsong",
+    "No.": "27",
+    "Party": "NPP",
+    "Remarks": "Deputy chief minister",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 27
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Sohra (ST)",
+    "Name": "Gavin Miguel Mylleim",
+    "No.": "28",
+    "Party": "PDF",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 28
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mawkynrew (ST)",
+    "Name": "Banteidor Lyngdoh",
+    "No.": "29",
+    "Party": "PDF",
+    "Remarks": "",
+    "District": "East Khasi Hills district",
+    "Constituency_No": 29
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mairang (ST)",
+    "Name": "Metbah Lyngdoh",
+    "No.": "30",
+    "Party": "UDP",
+    "Remarks": "",
+    "District": "Eastern West Khasi Hills district",
+    "Constituency_No": 30
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mawthadraishan (ST)",
+    "Name": "Shakliar Warjri",
+    "No.": "31",
+    "Party": "HSPDP",
+    "Remarks": "Cabinet minister",
+    "District": "Eastern West Khasi Hills district",
+    "Constituency_No": 31
+  },
+  {
+    "Alliance": "UPA",
+    "Constituency": "Nongstoin (ST)",
+    "Name": "Gabriel Wahlang",
+    "No.": "32",
+    "Party": "INC",
+    "Remarks": "",
+    "District": "West Khasi Hills district",
+    "Constituency_No": 32
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Rambrai-Jyrngam (ST)",
+    "Name": "Remington Gabil Momin",
+    "No.": "33",
+    "Party": "Independent",
+    "Remarks": "",
+    "District": "West Khasi Hills district",
+    "Constituency_No": 33
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mawshynrut (ST)",
+    "Name": "Methodius Dkhar",
+    "No.": "34",
+    "Party": "HSPDP",
+    "Remarks": "",
+    "District": "West Khasi Hills district",
+    "Constituency_No": 34
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Ranikor (ST)",
+    "Name": "Pius Marwein",
+    "No.": "35",
+    "Party": "UDP",
+    "Remarks": "",
+    "District": "South West Khasi Hills district",
+    "Constituency_No": 35
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mawkyrwat (ST)",
+    "Name": "Renikton Lyngdoh Tongkhar",
+    "No.": "36",
+    "Party": "UDP",
+    "Remarks": "",
+    "District": "South West Khasi Hills district",
+    "Constituency_No": 36
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Kharkutta (ST)",
+    "Name": "Rupert Momin",
+    "No.": "37",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "North Garo Hills district",
+    "Constituency_No": 37
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mendipathar (ST)",
+    "Name": "Marthon J. Sangma",
+    "No.": "38",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "North Garo Hills district",
+    "Constituency_No": 38
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Resubelpara (ST)",
+    "Name": "Timothy J. Shira",
+    "No.": "39",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "North Garo Hills district",
+    "Constituency_No": 39
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Bajengdoba (ST)",
+    "Name": "Pongseng Marak",
+    "No.": "40",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "North Garo Hills district",
+    "Constituency_No": 40
+  },
+  {
+    "Alliance": "Others",
+    "Constituency": "Songsak (ST)",
+    "Name": "Mukul Sangma",
+    "No.": "41",
+    "Party": "AITC",
+    "Remarks": "",
+    "District": "East Garo Hills district",
+    "Constituency_No": 41
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Rongjeng (ST)",
+    "Name": "Jim M. Sangma",
+    "No.": "42",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "East Garo Hills district",
+    "Constituency_No": 42
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Williamnagar (ST)",
+    "Name": "Marcuise N. Marak",
+    "No.": "43",
+    "Party": "NPP",
+    "Remarks": "Cabinet minister",
+    "District": "East Garo Hills district",
+    "Constituency_No": 43
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Raksamgre (ST)",
+    "Name": "Limison D. Sangma",
+    "No.": "44",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "West Garo Hills district",
+    "Constituency_No": 44
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Tikrikilla (ST)",
+    "Name": "Jimmy D. Sangma",
+    "No.": "45",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "West Garo Hills district",
+    "Constituency_No": 45
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Phulbari",
+    "Name": "Abu Taher Mondal",
+    "No.": "46",
+    "Party": "NPP",
+    "Remarks": "Cabinet minister",
+    "District": "West Garo Hills district",
+    "Constituency_No": 46
+  },
+  {
+    "Alliance": "Others",
+    "Constituency": "Rajabala",
+    "Name": "Mizanur Rahman Kazi",
+    "No.": "47",
+    "Party": "AITC",
+    "Remarks": "",
+    "District": "West Garo Hills district",
+    "Constituency_No": 47
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Selsella (ST)",
+    "Name": "Arbinstone B. Marak",
+    "No.": "48",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "West Garo Hills district",
+    "Constituency_No": 48
+  },
+  {
+    "Alliance": "Others",
+    "Constituency": "Dadenggre (ST)",
+    "Name": "Rupa M. Marak",
+    "No.": "49",
+    "Party": "AITC",
+    "Remarks": "",
+    "District": "West Garo Hills district",
+    "Constituency_No": 49
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "North Tura (ST)",
+    "Name": "Thomas A. Sangma",
+    "No.": "50",
+    "Party": "NPP",
+    "Remarks": "Speaker",
+    "District": "West Garo Hills district",
+    "Constituency_No": 50
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "South Tura (ST)",
+    "Name": "Conrad Sangma",
+    "No.": "51",
+    "Party": "NPP",
+    "Remarks": "Chief minister",
+    "District": "West Garo Hills district",
+    "Constituency_No": 51
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Rangsakona (ST)",
+    "Name": "Subir Marak",
+    "No.": "52",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "West Garo Hills district",
+    "Constituency_No": 52
+  },
+  {
+    "Alliance": "Others",
+    "Constituency": "Ampati (ST)",
+    "Name": "Miani D. Shira",
+    "No.": "53",
+    "Party": "AITC",
+    "Remarks": "",
+    "District": "South West Garo Hills district",
+    "Constituency_No": 53
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Mahendraganj (ST)",
+    "Name": "Sanjay A. Sangma",
+    "No.": "54",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "South West Garo Hills district",
+    "Constituency_No": 54
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Salmanpara (ST)",
+    "Name": "Ian Botham K. Sangma",
+    "No.": "55",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "South West Garo Hills district",
+    "Constituency_No": 55
+  },
+  {
+    "Alliance": "UPA",
+    "Constituency": "Gambegre (ST)",
+    "Name": "Saleng A. Sangma",
+    "No.": "56",
+    "Party": "INC",
+    "Remarks": "",
+    "District": "West Garo Hills district",
+    "Constituency_No": 56
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Dalu (ST)",
+    "Name": "Brening A. Sangma",
+    "No.": "57",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "West Garo Hills district",
+    "Constituency_No": 57
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Rongara Siju (ST)",
+    "Name": "Rakkam A. Sangma",
+    "No.": "58",
+    "Party": "NPP",
+    "Remarks": "Cabinet minister",
+    "District": "South Garo Hills district",
+    "Constituency_No": 58
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Chokpot (ST)",
+    "Name": "Sengchim N. Sangma",
+    "No.": "59",
+    "Party": "NPP",
+    "Remarks": "",
+    "District": "South Garo Hills district",
+    "Constituency_No": 59
+  },
+  {
+    "Alliance": "MDA",
+    "Constituency": "Baghmara (ST)",
+    "Name": "Kartush R. Marak",
+    "No.": "60",
+    "Party": "Independent",
+    "Remarks": "",
+    "District": "South Garo Hills district",
+    "Constituency_No": 60
+  }
+]
