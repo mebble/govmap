@@ -9,7 +9,7 @@
     import { json } from "d3-fetch";
     import { scaleOrdinal } from "d3-scale";
     import { schemePaired } from "d3-scale-chromatic"
-    import type { ColorChoice, Constituency, District, Party } from "./types";
+    import type { PropChoice, Constituency, District, Party } from "./types";
     import Select from "./lib/Select.svelte";
 
     const width = 900;
@@ -33,12 +33,13 @@
     let toolTipText = "";
     let svgElementX = 0;
     let svgElementY = 0;
-    let colorChoice: ColorChoice = 'Party';
+    let propChoice: PropChoice = 'Party';
     let colourScale: (string: string) => string
     $: colourScale = {
         'Party': partyColour,
         'District': districtColour,
-    }[colorChoice]
+    }[propChoice]
+    let selectedHighlight: string;
 
     onMount(async () => {
         geoData = await json("/assets/megh.geojson") as ExtendedFeatureCollection;
@@ -65,6 +66,11 @@
         svgElementY = y;
     }
 
+    function constituencyProp(constituency: ExtendedFeature) {
+        const con = constituencyMap[getConstituencyNumber(constituency)]
+        return con[propChoice];
+    }
+
     function getConstituencyNumber(constituency: ExtendedFeature) {
         return constituency.properties['AC_NO'] as number;
     }
@@ -89,8 +95,9 @@
                     {#each geoData.features as constituency}
                         <path
                             d={pathGenerator(constituency)}
-                            fill={colourScale(constituencyMap[getConstituencyNumber(constituency)][colorChoice])}
+                            fill={colourScale(constituencyProp(constituency))}
                             stroke="black"
+                            class:unselected={selectedHighlight && constituencyProp(constituency) !== selectedHighlight}
                             on:mouseenter={(e) => handleMouseEnter(e, constituency)}
                             on:mouseleave={handleMouseLeave}
                         />
@@ -101,24 +108,26 @@
             <div>Loading data...</div>
         {/if}
         <div id="legend">
-            {#if colorChoice === 'Party'}
-                <Select name={colorChoice}
+            {#if propChoice === 'Party'}
+                <Select name={propChoice}
+                    bind:selected={selectedHighlight}
                     options={["NPP", "UDP", "INC", "VPP", "BJP", "AITC", "PDF", "HSPDP", "Vacant", "Independent"]}
                     colourScale={colourScale} />
             {:else}
-                <Select name={colorChoice}
+                <Select name={propChoice}
+                    bind:selected={selectedHighlight}
                     options={['West Jaintia Hills district', 'East Jaintia Hills district', 'Ri Bhoi district', 'East Khasi Hills district', 'West Khasi Hills district', 'Eastern West Khasi Hills district', 'South West Khasi Hills district', 'North Garo Hills district', 'East Garo Hills district', 'South Garo Hills district', 'West Garo Hills district', 'South West Garo Hills district']}
                     colourScale={colourScale} />
             {/if}
         </div>
     </div>
-    <div id="colour-choice">
+    <div id="prop-choice">
         <label>
-            <input type=radio bind:group={colorChoice} name="colour-choice" value={'Party'}>
+            <input type=radio bind:group={propChoice} name="prop-choice" value={'Party'}>
             Party
         </label>
         <label>
-            <input type=radio bind:group={colorChoice} name="colour-choice" value={'District'}>
+            <input type=radio bind:group={propChoice} name="prop-choice" value={'District'}>
             District
         </label>
     </div>
@@ -151,7 +160,10 @@
     #legend {
         padding: 1rem;
     }
-    #colour-choice {
+    #prop-choice {
         margin-top: 1rem;
+    }
+    .unselected {
+        filter: grayscale(0.7) brightness(0.4);
     }
 </style>

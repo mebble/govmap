@@ -24,7 +24,7 @@ export type District =
     | 'West Garo Hills district'
     | 'South West Garo Hills district'
 
-export type ColorChoice = 'Party' | 'District'
+export type PropChoice = 'Party' | 'District'
 
 export type Constituency = {
     "Constituency": string,

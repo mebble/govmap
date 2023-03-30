@@ -1,9 +1,8 @@
 <script lang="ts">
     export let name: string;
+    export let selected: string;
     export let options: string[];
     export let colourScale: (s: string) => string;
-
-    let selected: string;
 </script>
 
 <div class="container">
@@ -15,6 +14,7 @@
             <span>{option}</span>
         </label>
     {/each}
+    <button type="button" on:click={() => selected = null}>Cancel</button>
 </div>
 
 <style>
@@ -37,5 +37,10 @@
         display:inline-block;
         width: 1rem;
         height: 1rem;
+    }
+
+    button {
+        background-color: antiquewhite;
+        margin-top: 1rem;
     }
 </style>
