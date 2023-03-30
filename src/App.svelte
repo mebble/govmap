@@ -10,6 +10,7 @@
     import { scaleOrdinal } from "d3-scale";
     import { schemePaired } from "d3-scale-chromatic"
     import type { ColorChoice, Constituency, District, Party } from "./types";
+    import Select from "./lib/Select.svelte";
 
     const width = 900;
     const height = 500;
@@ -81,24 +82,37 @@
 
 <main>
     <h1>govmap</h1>
-    {#if dataLoaded}
-        <svg {width} {height} use:setSVGPosition>
-            <g>
-                {#each geoData.features as constituency}
-                    <path
-                        d={pathGenerator(constituency)}
-                        fill={colourScale(constituencyMap[getConstituencyNumber(constituency)][colorChoice])}
-                        stroke="black"
-                        on:mouseenter={(e) => handleMouseEnter(e, constituency)}
-                        on:mouseleave={handleMouseLeave}
-                    />
-                {/each}
-            </g>
-        </svg>
-    {:else}
-        <div>Loading data...</div>
-    {/if}
-    <div>
+    <div id="chart">
+        {#if dataLoaded}
+            <svg {width} {height} use:setSVGPosition>
+                <g>
+                    {#each geoData.features as constituency}
+                        <path
+                            d={pathGenerator(constituency)}
+                            fill={colourScale(constituencyMap[getConstituencyNumber(constituency)][colorChoice])}
+                            stroke="black"
+                            on:mouseenter={(e) => handleMouseEnter(e, constituency)}
+                            on:mouseleave={handleMouseLeave}
+                        />
+                    {/each}
+                </g>
+            </svg>
+        {:else}
+            <div>Loading data...</div>
+        {/if}
+        <div id="legend">
+            {#if colorChoice === 'Party'}
+                <Select name={colorChoice}
+                    options={["NPP", "UDP", "INC", "VPP", "BJP", "AITC", "PDF", "HSPDP", "Vacant", "Independent"]}
+                    colourScale={colourScale} />
+            {:else}
+                <Select name={colorChoice}
+                    options={['West Jaintia Hills district', 'East Jaintia Hills district', 'Ri Bhoi district', 'East Khasi Hills district', 'West Khasi Hills district', 'Eastern West Khasi Hills district', 'South West Khasi Hills district', 'North Garo Hills district', 'East Garo Hills district', 'South Garo Hills district', 'West Garo Hills district', 'South West Garo Hills district']}
+                    colourScale={colourScale} />
+            {/if}
+        </div>
+    </div>
+    <div id="colour-choice">
         <label>
             <input type=radio bind:group={colorChoice} name="colour-choice" value={'Party'}>
             Party
@@ -117,15 +131,27 @@
 </main>
 
 <style>
+    h1 {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+    }
     svg {
         border: 1px solid black;
     }
-
     #tooltip {
         position: fixed;
         top: 0;
         left: 0;
         background-color: white;
         border: 1px solid black;
+    }
+    #chart {
+        display: flex;
+    }
+    #legend {
+        padding: 1rem;
+    }
+    #colour-choice {
+        margin-top: 1rem;
     }
 </style>
