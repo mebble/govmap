@@ -1,5 +1,7 @@
 # govmap
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/06a4cd56-b856-4603-a28f-2132b20b0482/deploy-status)](https://app.netlify.com/sites/ggovmmap/deploys)
+
 ## Development
 
 ```
