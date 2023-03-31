@@ -11,6 +11,7 @@
     import { schemePaired } from "d3-scale-chromatic"
     import type { PropChoice, Constituency, District, Party, AssemblyData } from "./types";
     import Select from "./lib/Select.svelte";
+    import Banner from "./lib/Banner.svelte";
 
     const width = 900;
     const height = 500;
@@ -91,8 +92,19 @@
     }
 </script>
 
+<Banner />
 <main>
     <h1>govmap</h1>
+    <div id="prop-choice">
+        <label>
+            <input type=radio bind:group={propChoice} name="prop-choice" value={'Party'}>
+            Party
+        </label>
+        <label>
+            <input type=radio bind:group={propChoice} name="prop-choice" value={'District'}>
+            District
+        </label>
+    </div>
     <div id="chart">
         {#if dataLoaded}
             <svg {width} {height} use:setSVGPosition>
@@ -126,16 +138,6 @@
             {/if}
         </div>
     </div>
-    <div id="prop-choice">
-        <label>
-            <input type=radio bind:group={propChoice} name="prop-choice" value={'Party'}>
-            Party
-        </label>
-        <label>
-            <input type=radio bind:group={propChoice} name="prop-choice" value={'District'}>
-            District
-        </label>
-    </div>
     {#if showTooltip}
         <div id="tooltip"
             style="transform: translate(calc({svgElementX}px + {tooltipX}px), calc({svgElementY}px + {tooltipY}px))">
@@ -145,6 +147,9 @@
 </main>
 
 <style>
+    main {
+        padding: 2rem;
+    }
     h1 {
         margin-top: 0;
         margin-bottom: 1.5rem;
@@ -161,12 +166,13 @@
     }
     #chart {
         display: flex;
+        flex-wrap: wrap;
     }
     #legend {
         padding: 1rem;
     }
     #prop-choice {
-        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
     .unselected {
         filter: grayscale(0.7) brightness(0.4);
