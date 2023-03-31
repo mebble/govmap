@@ -33,3 +33,9 @@ export type Constituency = {
     "Party": Party,
     "District": District,
 };
+
+export type AssemblyData = {
+    constituencies: Constituency[],
+    parties: Party[],
+    districts: District[],
+}

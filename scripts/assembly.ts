@@ -1,3 +1,5 @@
+import _ from "https://cdn.skypack.dev/lodash?dts"
+
 type RawRow = {
     "No.": string,
     "Constituency": string,
@@ -12,23 +14,28 @@ type Row = RawRow & {
     Constituency_No: number,
 }
 
-type ProcessedData = {
+type ReducedData = {
     currentDistrict: string,
     rows: Row[]
 }
 
 const res = await fetch('https://www.wikitable2json.com/api/11th_Meghalaya_Assembly?table=2&keyRows=1')
 const tables = await res.json() as [RawRow[]]
-const data = tables[0].reduce<ProcessedData>((processedData, row) => {
-    const { rows, currentDistrict } = processedData;
+const data = tables[0].reduce<ReducedData>((reducedData, row) => {
+    const { rows, currentDistrict } = reducedData;
     if (isDistrictRow(row)) {
-        return { ...processedData, currentDistrict: getDistrict(row) }
+        return { ...reducedData, currentDistrict: getDistrict(row) }
     }
-    return { ...processedData, rows: [...rows, { ...row, District: currentDistrict, Constituency_No: parseInt(row['No.']) }] }
+    return { ...reducedData, rows: [...rows, { ...row, District: currentDistrict, Constituency_No: parseInt(row['No.']) }] }
 }, { currentDistrict: '', rows: [] })
 
-// verifyDistricts(data.rows)
-console.log(JSON.stringify(data.rows, null, 2))
+const result = {
+    constituencies: data.rows,
+    districts: _.uniqBy(data.rows, 'District').map(({ District }) => District),
+    parties: _.uniqBy(data.rows, 'Party').map(({ Party }) => Party),
+}
+
+console.log(JSON.stringify(result, null, 2))
 
 function isDistrictRow(row: RawRow) {
     const { "No.": no,  Constituency, Name, Party, Alliance, Remarks } = row

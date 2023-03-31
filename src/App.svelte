@@ -9,7 +9,7 @@
     import { json } from "d3-fetch";
     import { scaleOrdinal } from "d3-scale";
     import { schemePaired } from "d3-scale-chromatic"
-    import type { PropChoice, Constituency, District, Party } from "./types";
+    import type { PropChoice, Constituency, District, Party, AssemblyData } from "./types";
     import Select from "./lib/Select.svelte";
 
     const width = 900;
@@ -27,6 +27,9 @@
     let geoData: ExtendedFeatureCollection;
     let constituencyMap: Record<number, Constituency> = {};
     $: dataLoaded = geoData && !isEmpty(constituencyMap)
+    let parties: Party[] = [];
+    let districts: District[] = [];
+
     let showTooltip = false;
     let tooltipX = 0;
     let tooltipY = 0;
@@ -43,8 +46,10 @@
 
     onMount(async () => {
         geoData = await json("/assets/megh.geojson") as ExtendedFeatureCollection;
-        const assemblyData = await json("/assets/assembly.json") as Constituency[];
-        constituencyMap = buildConstituencyMap(assemblyData)
+        const assemblyData = await json("/assets/assembly.json") as AssemblyData;
+        constituencyMap = buildConstituencyMap(assemblyData.constituencies)
+        parties = assemblyData.parties
+        districts = assemblyData.districts
     });
 
     function handleMouseEnter(_e: MouseEvent, constituency: ExtendedFeature) {
@@ -111,12 +116,12 @@
             {#if propChoice === 'Party'}
                 <Select name={propChoice}
                     bind:selected={selectedHighlight}
-                    options={["NPP", "UDP", "INC", "VPP", "BJP", "AITC", "PDF", "HSPDP", "Vacant", "Independent"]}
+                    options={parties}
                     colourScale={colourScale} />
             {:else}
                 <Select name={propChoice}
                     bind:selected={selectedHighlight}
-                    options={['West Jaintia Hills district', 'East Jaintia Hills district', 'Ri Bhoi district', 'East Khasi Hills district', 'West Khasi Hills district', 'Eastern West Khasi Hills district', 'South West Khasi Hills district', 'North Garo Hills district', 'East Garo Hills district', 'South Garo Hills district', 'West Garo Hills district', 'South West Garo Hills district']}
+                    options={districts}
                     colourScale={colourScale} />
             {/if}
         </div>
