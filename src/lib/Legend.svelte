@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Party from "./Party.svelte";
+
     export let name: string;
     export let selected: string;
     export let options: string[];
@@ -10,8 +12,7 @@
     {#each options as option}
         <label>
             <input type=radio bind:group={selected} {name} value={option}/>
-            <span class="colour" style="background-color: {colourScale(option)}"></span>
-            <span>{option}</span>
+            <Party name={option} colour={colourScale(option)} />
         </label>
     {/each}
     <button type="button" on:click={() => selected = null}>Cancel</button>
@@ -21,6 +22,7 @@
     .container {
         display: flex;
         flex-direction: column;
+        padding: 1rem;
     }
     h2 {
         margin: 0;
@@ -33,12 +35,6 @@
         gap: 0.3rem;
         text-align: start;
     }
-    .colour {
-        display:inline-block;
-        width: 1rem;
-        height: 1rem;
-    }
-
     button {
         background-color: antiquewhite;
         margin-top: 1rem;

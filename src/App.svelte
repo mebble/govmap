@@ -10,8 +10,9 @@
     import { scaleOrdinal } from "d3-scale";
     import { schemePaired } from "d3-scale-chromatic"
     import type { PropChoice, Constituency, District, Party, AssemblyData } from "./types";
-    import Select from "./lib/Select.svelte";
+    import Legend from "./lib/Legend.svelte";
     import Banner from "./lib/Banner.svelte";
+    import InfoBox from "./lib/InfoBox.svelte";
 
     const width = 900;
     const height = 500;
@@ -31,19 +32,16 @@
     let parties: Party[] = [];
     let districts: District[] = [];
 
-    let showTooltip = false;
-    let tooltipX = 0;
-    let tooltipY = 0;
-    let toolTipText = "";
-    let svgElementX = 0;
-    let svgElementY = 0;
     let propChoice: PropChoice = 'Party';
     let colourScale: (string: string) => string
     $: colourScale = {
         'Party': partyColour,
         'District': districtColour,
     }[propChoice]
-    let selectedHighlight: string;
+
+    let selectedLegendItem: string;
+    let selectedConstituency: Constituency;
+    let showSelectedConstituency = false;
 
     onMount(async () => {
         geoData = await json("/assets/megh.geojson") as ExtendedFeatureCollection;
@@ -53,32 +51,27 @@
         districts = assemblyData.districts
     });
 
-    function handleMouseEnter(_e: MouseEvent, constituency: ExtendedFeature) {
-        const [centerX, centerY] = pathGenerator.centroid(constituency);
-        const { AC_NAME, DIST_NAME } = constituency.properties;
-        showTooltip = true;
-        tooltipX = centerX;
-        tooltipY = centerY;
-        toolTipText = AC_NAME + ", " + DIST_NAME;
+    function handleMouseEnter(_e: MouseEvent, constituencyFeature: ExtendedFeature) {
+        showSelectedConstituency = true;
+        selectedConstituency = getConstituency(constituencyFeature)
     }
 
     function handleMouseLeave(_e: MouseEvent) {
-        showTooltip = false;
+        showSelectedConstituency = false;
+        selectedConstituency = undefined;
     }
 
-    function setSVGPosition(node: Element) {
-        let { x, y } = node.getBoundingClientRect()
-        svgElementX = x;
-        svgElementY = y;
+    function constituencyProp(constituencyFeature: ExtendedFeature) {
+        const constituency = getConstituency(constituencyFeature)
+        return constituency[propChoice];
     }
 
-    function constituencyProp(constituency: ExtendedFeature) {
-        const con = constituencyMap[getConstituencyNumber(constituency)]
-        return con[propChoice];
+    function getConstituency(constituencyFeature: ExtendedFeature) {
+        return constituencyMap[getConstituencyNumber(constituencyFeature)]
     }
 
-    function getConstituencyNumber(constituency: ExtendedFeature) {
-        return constituency.properties['AC_NO'] as number;
+    function getConstituencyNumber(constituencyFeature: ExtendedFeature) {
+        return constituencyFeature.properties['AC_NO'] as number;
     }
 
     function buildConstituencyMap(constituencies: Constituency[]) {
@@ -95,7 +88,7 @@
 <Banner />
 <main>
     <h1>govmap</h1>
-    <div id="prop-choice">
+    <div class="prop-choice">
         <label>
             <input type=radio bind:group={propChoice} name="prop-choice" value={'Party'}>
             Party
@@ -105,50 +98,50 @@
             District
         </label>
     </div>
-    <div id="chart">
-        {#if dataLoaded}
-            <svg {width} {height} use:setSVGPosition>
-                <g>
-                    {#each geoData.features as constituency}
-                        <path
-                            d={pathGenerator(constituency)}
-                            fill={colourScale(constituencyProp(constituency))}
-                            stroke="black"
-                            class:unselected={selectedHighlight && constituencyProp(constituency) !== selectedHighlight}
-                            on:mouseenter={(e) => handleMouseEnter(e, constituency)}
-                            on:mouseleave={handleMouseLeave}
-                        />
-                    {/each}
-                </g>
-            </svg>
-        {:else}
-            <div>Loading data...</div>
-        {/if}
-        <div id="legend">
+    <div class="output">
+        <div id="chart">
+            {#if dataLoaded}
+                <svg {width} {height}>
+                    <g>
+                        {#each geoData.features as constituency}
+                            <path
+                                d={pathGenerator(constituency)}
+                                fill={colourScale(constituencyProp(constituency))}
+                                stroke="black"
+                                class:unselected-legend-item={selectedLegendItem && constituencyProp(constituency) !== selectedLegendItem}
+                                class:selected-constituency={getConstituency(constituency) === selectedConstituency}
+                                on:mouseenter={(e) => handleMouseEnter(e, constituency)}
+                                on:mouseleave={handleMouseLeave}
+                            />
+                        {/each}
+                    </g>
+                </svg>
+                {#if showSelectedConstituency}
+                    <InfoBox constituency={selectedConstituency} colour={colourScale(selectedConstituency.Party)} />
+                {/if}
+            {:else}
+                <div>Loading data...</div>
+            {/if}
+        </div>
+        <div>
             {#if propChoice === 'Party'}
-                <Select name={propChoice}
-                    bind:selected={selectedHighlight}
+                <Legend name={propChoice}
+                    bind:selected={selectedLegendItem}
                     options={parties}
                     colourScale={colourScale} />
             {:else}
-                <Select name={propChoice}
-                    bind:selected={selectedHighlight}
+                <Legend name={propChoice}
+                    bind:selected={selectedLegendItem}
                     options={districts}
                     colourScale={colourScale} />
             {/if}
         </div>
     </div>
-    {#if showTooltip}
-        <div id="tooltip"
-            style="transform: translate(calc({svgElementX}px + {tooltipX}px), calc({svgElementY}px + {tooltipY}px))">
-            {toolTipText}
-        </div>
-    {/if}
 </main>
 
 <style>
     main {
-        padding: 2rem;
+        padding: 1rem 2rem;
     }
     h1 {
         margin-top: 0;
@@ -157,24 +150,17 @@
     svg {
         border: 1px solid black;
     }
-    #tooltip {
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: white;
-        border: 1px solid black;
-    }
-    #chart {
+    .output {
         display: flex;
         flex-wrap: wrap;
     }
-    #legend {
-        padding: 1rem;
-    }
-    #prop-choice {
+    .prop-choice {
         margin-bottom: 1rem;
     }
-    .unselected {
+    .unselected-legend-item {
         filter: grayscale(0.7) brightness(0.4);
+    }
+    .selected-constituency {
+        filter: brightness(1.2)
     }
 </style>
