@@ -142,6 +142,7 @@
 <style>
     main {
         padding: 1rem 2rem;
+        margin: auto;
     }
     h1 {
         margin-top: 0;
