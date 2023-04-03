@@ -11,21 +11,15 @@
     import { schemePaired } from "d3-scale-chromatic"
     import type { PropChoice, Constituency, District, Party, AssemblyData } from "./types";
     import Legend from "./lib/Legend.svelte";
-    import Banner from "./lib/Banner.svelte";
     import InfoBox from "./lib/InfoBox.svelte";
 
-    const width = 900;
-    const height = 500;
-
-    const projection = geoEqualEarth()
-        .center([25.58, 91.89])
-        .scale(19000)
-        .translate([-22.33 * width, -30.2 * height]);
-    const pathGenerator = geoPath(projection);
+    const width = Math.min(0.9 * window.innerWidth, 900);
+    const height = 0.56 * width;
 
     const partyColour = scaleOrdinal<Party, string>(schemePaired)
     const districtColour = scaleOrdinal<District, string>(schemePaired)
 
+    let pathGenerator: ReturnType<typeof geoPath>;
     let geoData: ExtendedFeatureCollection;
     let constituencyMap: Record<number, Constituency> = {};
     $: dataLoaded = geoData && !isEmpty(constituencyMap)
@@ -45,6 +39,11 @@
 
     onMount(async () => {
         geoData = await json("/assets/megh.geojson") as ExtendedFeatureCollection;
+        const projection = geoEqualEarth()
+            .center([25.58, 91.89])
+            .fitExtent([[10, 0], [width - 10, height]], geoData);
+        pathGenerator = geoPath(projection);
+
         const assemblyData = await json("/assets/assembly.json") as AssemblyData;
         constituencyMap = buildConstituencyMap(assemblyData.constituencies)
         parties = assemblyData.parties
@@ -85,7 +84,6 @@
     }
 </script>
 
-<Banner />
 <main>
     <h1>govmap</h1>
     <div class="prop-choice">
