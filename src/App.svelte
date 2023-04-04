@@ -13,6 +13,7 @@
     import Legend from "./lib/Legend.svelte";
     import InfoBox from "./lib/InfoBox.svelte";
     import Github from "./lib/Github.svelte";
+    import Attribution from "./lib/Attribution.svelte";
 
     const width = Math.min(0.9 * window.innerWidth, 900);
     const height = 0.56 * width;
@@ -90,6 +91,10 @@
             <Github />
         </a>
     </div>
+    <details>
+        <summary>Attribution</summary>
+        <Attribution />
+    </details>
     <div class="prop-choice">
         <label>
             <input type=radio bind:group={propChoice} name="prop-choice" value={'Party'}>
@@ -148,7 +153,12 @@
     .header {
         display: flex;
         align-items: baseline;
+        margin-bottom: 0.5rem;
+    }
+    details {
         margin-bottom: 1.5rem;
+        margin-left: 0.5rem;
+        font-size: small;
     }
     .header h1 {
         margin-right: 1rem;
