@@ -39,9 +39,7 @@
 
     onMount(async () => {
         geoData = await json("/assets/megh.geojson") as ExtendedFeatureCollection;
-        const projection = geoEqualEarth()
-            .center([25.58, 91.89])
-            .fitExtent([[10, 0], [width - 10, height]], geoData);
+        const projection = geoEqualEarth().fitExtent([[10, 0], [width - 10, height]], geoData);
         pathGenerator = geoPath(projection);
 
         const assemblyData = await json("/assets/assembly.json") as AssemblyData;
