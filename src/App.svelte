@@ -95,8 +95,8 @@
         </label>
     </div>
     <div class="output">
-        <div class="chart">
-            {#if dataLoaded}
+        {#if dataLoaded}
+            <div class="chart">
                 <svg {width} {height}>
                     <g>
                         {#each geoData.features as constituency}
@@ -115,23 +115,23 @@
                 {#if showSelectedConstituency}
                     <InfoBox constituency={selectedConstituency} colour={colourScale(selectedConstituency.Party)} />
                 {/if}
-            {:else}
-                <div>Loading data...</div>
-            {/if}
-        </div>
-        <div>
-            {#if propChoice === 'Party'}
-                <Legend name={propChoice}
-                    bind:selected={selectedLegendItem}
-                    options={parties}
-                    colourScale={colourScale} />
-            {:else}
-                <Legend name={propChoice}
-                    bind:selected={selectedLegendItem}
-                    options={districts}
-                    colourScale={colourScale} />
-            {/if}
-        </div>
+            </div>
+            <div>
+                {#if propChoice === 'Party'}
+                    <Legend name={propChoice}
+                        bind:selected={selectedLegendItem}
+                        options={parties}
+                        colourScale={colourScale} />
+                {:else}
+                    <Legend name={propChoice}
+                        bind:selected={selectedLegendItem}
+                        options={districts}
+                        colourScale={colourScale} />
+                {/if}
+            </div>
+        {:else}
+            <div>Loading data...</div>
+        {/if}
     </div>
 </main>
 
