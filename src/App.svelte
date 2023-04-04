@@ -95,7 +95,7 @@
         </label>
     </div>
     <div class="output">
-        <div id="chart">
+        <div class="chart">
             {#if dataLoaded}
                 <svg {width} {height}>
                     <g>
@@ -137,18 +137,22 @@
 
 <style>
     main {
-        padding: 1rem 2rem;
+        padding: 1rem;
     }
     h1 {
         margin-top: 0;
         margin-bottom: 1.5rem;
     }
-    svg {
-        border: 1px solid black;
-    }
     .output {
         display: flex;
         flex-wrap: wrap;
+    }
+    .chart {
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+    }
+    svg {
+        border: 1px solid black;
     }
     .prop-choice {
         margin-bottom: 1rem;
@@ -158,5 +162,11 @@
     }
     .selected-constituency {
         filter: brightness(1.2)
+    }
+
+    @media (min-width: 640px) {
+        main {
+            padding: 1rem 2rem;
+        }
     }
 </style>

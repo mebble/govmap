@@ -22,12 +22,11 @@
     .container {
         display: flex;
         flex-direction: column;
-        padding: 1rem;
     }
     h2 {
         margin: 0;
         margin-bottom: 0.5rem;
-        text-align: center;
+        margin-left: 1ch;
     }
     label {
         display: flex;
