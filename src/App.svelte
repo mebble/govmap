@@ -12,6 +12,7 @@
     import type { PropChoice, Constituency, District, Party, AssemblyData } from "./types";
     import Legend from "./lib/Legend.svelte";
     import InfoBox from "./lib/InfoBox.svelte";
+    import Github from "./lib/Github.svelte";
 
     const width = Math.min(0.9 * window.innerWidth, 900);
     const height = 0.56 * width;
@@ -83,7 +84,12 @@
 </script>
 
 <main>
-    <h1>govmap</h1>
+    <div class="header">
+        <h1>govmap</h1>
+        <a href="https://github.com/mebble/govmap">
+            <Github />
+        </a>
+    </div>
     <div class="prop-choice">
         <label>
             <input type=radio bind:group={propChoice} name="prop-choice" value={'Party'}>
@@ -139,9 +145,19 @@
     main {
         padding: 1rem;
     }
-    h1 {
-        margin-top: 0;
+    .header {
+        display: flex;
+        align-items: baseline;
         margin-bottom: 1.5rem;
+    }
+    .header h1 {
+        margin-right: 1rem;
+    }
+    .header a {
+        color: rgb(211, 128, 181);
+    }
+    h1 {
+        margin: 0;
     }
     .output {
         display: flex;
