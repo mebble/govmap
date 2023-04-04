@@ -36,8 +36,8 @@
     }[propChoice]
 
     let selectedLegendItem: string;
-    let selectedConstituency: Constituency;
-    let showSelectedConstituency = false;
+    let hoveredConstituency: Constituency;
+    let clickedConstituency: Constituency;
 
     onMount(async () => {
         geoData = await json("/assets/megh.geojson") as ExtendedFeatureCollection;
@@ -51,13 +51,11 @@
     });
 
     function handleMouseEnter(_e: MouseEvent, constituencyFeature: ExtendedFeature) {
-        showSelectedConstituency = true;
-        selectedConstituency = getConstituency(constituencyFeature)
+        hoveredConstituency = getConstituency(constituencyFeature)
     }
 
     function handleMouseLeave(_e: MouseEvent) {
-        showSelectedConstituency = false;
-        selectedConstituency = undefined;
+        hoveredConstituency = undefined;
     }
 
     function constituencyProp(constituencyFeature: ExtendedFeature) {
@@ -116,15 +114,18 @@
                                 fill={colourScale(constituencyProp(constituency))}
                                 stroke="black"
                                 class:unselected-legend-item={selectedLegendItem && constituencyProp(constituency) !== selectedLegendItem}
-                                class:selected-constituency={getConstituency(constituency) === selectedConstituency}
+                                class:selected-constituency={getConstituency(constituency) === hoveredConstituency}
                                 on:mouseenter={(e) => handleMouseEnter(e, constituency)}
                                 on:mouseleave={handleMouseLeave}
+                                on:click={() => { clickedConstituency = getConstituency(constituency) }}
                             />
                         {/each}
                     </g>
                 </svg>
-                {#if showSelectedConstituency}
-                    <InfoBox constituency={selectedConstituency} colour={colourScale(selectedConstituency.Party)} />
+                {#if hoveredConstituency}
+                    <InfoBox constituency={hoveredConstituency} colour={colourScale(hoveredConstituency.Party)} />
+                {:else if clickedConstituency}
+                    <InfoBox constituency={clickedConstituency} colour={colourScale(clickedConstituency.Party)} />
                 {/if}
             </div>
             <div>
